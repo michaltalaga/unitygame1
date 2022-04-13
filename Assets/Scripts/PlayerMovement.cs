@@ -39,5 +39,4 @@ public class PlayerMovement : MonoBehaviour
              
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
     }
-
 }
