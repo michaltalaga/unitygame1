@@ -8,7 +8,7 @@ public class FireWeapon : MonoBehaviour
     new Collider2D collider2D;
     // Start is called before the first frame update
     [SerializeField] GameObject bullet;
-    [SerializeField] LayerMask projectilesLayer;
+    //[SerializeField] LayerMask projectilesLayer;
     float lastBulletTime = 0;
     void Start()
     {
@@ -24,7 +24,7 @@ public class FireWeapon : MonoBehaviour
             lastBulletTime = Time.time;
             var newBullet = Instantiate(bullet);
             newBullet.transform.position = collider2D.bounds.center;
-            newBullet.layer = (int)Mathf.Log(projectilesLayer.value, 2);
+            //newBullet.layer = (int)Mathf.Log(projectilesLayer.value, 2);
             var bulletBody = newBullet.GetComponent<Rigidbody2D>();
             var direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - collider2D.bounds.center;
             direction = direction * 100000;
