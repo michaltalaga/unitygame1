@@ -5,12 +5,13 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] Vector3 offset;
 
     private void FixedUpdate()
     {
-        var desiredPosition = target.position + offset;
-        var smootherdPosition = Vector3.Lerp(transform.position, desiredPosition, 0.1f);
-        transform.position = smootherdPosition;
+        var transform = this.transform;
+        var desiredPosition = target.position;
+        desiredPosition.z = transform.position.z;
+        var smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 0.1f);
+        transform.position = smoothedPosition;
     }
 }
