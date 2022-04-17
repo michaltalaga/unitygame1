@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //rb.velocity = Vector2.zero;
         Destroy(gameObject);
     }
     

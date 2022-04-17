@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator animator;
 
     Rigidbody2D body;
-    bool facingRight = true;
-
     IGroundChecker groundChecker;
 
     private void Start()
