@@ -20,8 +20,6 @@ public class PlayerMovement : NetworkBehaviour
 
     private void ProcessJump()
     {
-        Debug.Log("ProcessJump");
-        Debug.Log("Is Grounded: " + groundChecker.CheckIsGrounded());
         if (!groundChecker.IsGrounded) return;
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
