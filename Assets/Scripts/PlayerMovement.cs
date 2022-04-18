@@ -20,13 +20,21 @@ public class PlayerMovement : NetworkBehaviour
 
     private void ProcessJump()
     {
+        Debug.Log("ProcessJump");
+        Debug.Log("Is Grounded: " + groundChecker.CheckIsGrounded());
         if (!groundChecker.IsGrounded) return;
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
-            body.velocity = Vector2.up * jumpHeight;
+            ProcessJumpServerRpc();
         }
     }
-    private void FixedUpdate()
+    [ServerRpc]
+    private void ProcessJumpServerRpc()
+    {
+        if (!groundChecker.IsGrounded) return;
+        body.velocity = Vector2.up * jumpHeight;
+    }
+    private void Update()
     {
         if (!IsLocalPlayer) return;
         ProcessHorizontalMove();
@@ -36,7 +44,12 @@ public class PlayerMovement : NetworkBehaviour
     {
         var horizontal = Input.GetAxis("Horizontal");
         animator.SetFloat("Moving", horizontal);
-             
+        ProcessHorizonalMoveServerRpc(horizontal);
+        
+    }
+    [ServerRpc]
+    private void ProcessHorizonalMoveServerRpc(float horizontal)
+    {
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
     }
 }
