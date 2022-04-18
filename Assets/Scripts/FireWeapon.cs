@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FireWeapon : MonoBehaviour
+public class FireWeapon : NetworkBehaviour
 {
     new Collider2D collider2D;
     [SerializeField] GameObject bullet;
@@ -16,7 +17,7 @@ public class FireWeapon : MonoBehaviour
 
     void Update()
     {
-        
+        if (!IsLocalPlayer) return;
         if (Input.GetMouseButton(0) && (Time.time - lastBulletTime) > 0.1)
         {
             lastBulletTime = Time.time;

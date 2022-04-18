@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] float speed = 10;
     [SerializeField] float jumpHeight = 20;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (!IsLocalPlayer) return;
         ProcessHorizontalMove();
         ProcessJump();
     }
