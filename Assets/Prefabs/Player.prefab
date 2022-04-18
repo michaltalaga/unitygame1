@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 222297453191095775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.006, y: -0.142, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8899007979680214129}
@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2008745910978807647, guid: 8225c848f6a6ad04e8bb163c7daa3a04, type: 3}
+  bulletSpawnPoint: {fileID: 8676415535934538530}
 --- !u!114 &5122233128389540243
 MonoBehaviour:
   m_ObjectHideFlags: 0
